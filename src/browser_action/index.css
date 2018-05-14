@@ -1,0 +1,12 @@
+.popup {
+    height: 10rem;    
+    width: 15rem;
+}
+
+.popup__row {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+.popup__row.hidden { display: none; }
