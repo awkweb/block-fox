@@ -1,12 +1,21 @@
 // CONSTANTS
-const blockedSitesTextareaId = '#blocked-sites';
+const blockedSitesListId = '#blocked-sites';
 const enabledSwitchId = '#enabled-switch';
 // CONSTANTS
 
 // INIT
 let sites = JSON.parse(localStorage.getItem(blockedSitesKey)) || [];
-const blockedSitesTextareaElement = document.querySelector(blockedSitesTextareaId);
-blockedSitesTextareaElement.value = sites;
+const blockedSitesListElement = document.querySelector(blockedSitesListId);
+sites.forEach((site) => {
+    const prettyUrl = getPrettyUrl(site);
+    const markup = `
+        <div id="${site}" class="options__site">
+            <a href="${site}">${prettyUrl}</a>
+        </div>
+    `;
+    blockedSitesListElement.insertAdjacentHTML('afterend', markup);
+});
+
 const enabled = localStorage.getItem(enabledSwitchKey) !== null &&
                 localStorage.getItem(enabledSwitchKey) === 'true';
 updateSwitchForId(enabledSwitchId, enabled);

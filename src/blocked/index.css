@@ -1,0 +1,23 @@
+.blocked {
+    align-items: center;
+    background-color: #102d47;
+    color: #f3f4f5;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    padding: 1rem;
+    width: 100vw;
+}
+
+.blocked__logo {
+    margin-bottom: 1.5rem;
+    width: 2rem;
+}
+
+.blocked__description {
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 3.5rem;
+    text-align: center;
+}

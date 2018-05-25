@@ -1,12 +1,22 @@
 .popup {
-    height: 10rem;    
-    width: 15rem;
+    background-color: #f3f4f5;
+    padding: 1rem;  
+    width: 22rem;
 }
 
 .popup__row {
     align-items: center;
     display: flex;
+    font-size: .9rem;
     justify-content: space-between;
-    margin-bottom: 1rem;
+    margin-top: 1.25rem;
 }
 .popup__row.hidden { display: none; }
+.popup__row:first-child { margin-top: 0; }
+
+#tab-url {
+    max-width: 16rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+}

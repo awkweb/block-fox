@@ -1,7 +1,19 @@
+const urlMatch = (url) => {
+    const re = /([a-z]{1,2}tps?):\/\/((?:(?!(?:\/|#|\?|&)).)+)(?:(\/(?:(?:(?:(?!(?:#|\?|&)).)+\/))?))?(?:((?:(?!(?:\.|$|\?|#)).)+))?(?:(\.(?:(?!(?:\?|$|#)).)+))?(?:(\?(?:(?!(?:$|#)).)+))?(?:(#.+))?/i;
+    return url.match(re);
+};
+
+const getPrettyUrl = (url) => {
+    const found = urlMatch(url);
+    if (!found) {
+        return;
+    }
+    return found[2];
+};
+
 const getUrlForTab = (tab) => {
     const url = tab.url;
-    const re = /([a-z]{1,2}tps?):\/\/((?:(?!(?:\/|#|\?|&)).)+)(?:(\/(?:(?:(?:(?!(?:#|\?|&)).)+\/))?))?(?:((?:(?!(?:\.|$|\?|#)).)+))?(?:(\.(?:(?!(?:\?|$|#)).)+))?(?:(\?(?:(?!(?:$|#)).)+))?(?:(#.+))?/i;
-    const found = url.match(re);
+    const found = urlMatch(url);
     if (!found) {
         return;
     }

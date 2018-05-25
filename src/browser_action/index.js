@@ -9,14 +9,14 @@ const tabUrlId = '#tab-url';
 let sites = JSON.parse(localStorage.getItem(blockedSitesKey)) || [];
 chrome.tabs.getSelected(null, (tab) => {
     const root = getUrlForTab(tab);
-    console.log(root);
     if (!root) {
         const el = document.querySelector(siteRowId);
         el.classList.add('hidden');
         return;
     }
     const tabUrlElement = document.querySelector(tabUrlId);
-    tabUrlElement.innerHTML = root;
+    const prettyUrl = getPrettyUrl(root);
+    tabUrlElement.innerHTML = `Block <b>${prettyUrl}</b>?`;
 
     const blocked = sites.includes(root)
     updateSwitchForId(siteSwitchId, blocked);
