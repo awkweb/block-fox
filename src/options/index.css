@@ -27,16 +27,93 @@
 }
 
 .options__header {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
     margin-bottom: 4rem;
 }
 
-.options__sites {
+.options__header-row {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
 
+.options__sites {
+}
+
+.options__sites-add {
+    align-items: center;
+    background-color: #08253F;
+    border-radius: 2px;
+    display: flex;
+    margin-bottom: 2rem; 
+    padding: .25rem;
+}
+
+.options__sites-add-input,
+.options__sites-add-button {
+    font-family: 'Fira Code', monospace;
+}
+
+.options__sites-add-input {
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 0;
+    color: #f3f4f5;
+    flex: 7.5;
+    font-size: 1rem;
+    outline: none;
+}
+
+.options__sites-add-input::-webkit-input-placeholder {
+    color: #c8c8c8;
+}
+
+.options__sites-add-button {
+    -webkit-appearance: none;
+    background-color: #001933;
+    border-radius: 2px;
+    border: 0;
+    color: #f3f4f5;
+    cursor: pointer;
+    height: 1.77rem;
+    flex: 2.5;    
+    font-size: .8rem;
+    outline: 0;
+    padding: 0;
+    transition: all .25s;
+}
+
+.options__sites-add-button:hover {
+    background-color: #c24843;
+    transform: translateY(-1px);
+}
+
+.options__sites-add-button:active {
+    transform: translateY(1px);
 }
 
 .options__site {
     margin-bottom: 1rem;
+    position: relative;
+}
+
+.options__site-delete {
+    background-color: transparent;
+    background-image: url('/icons/x.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 2px;
+    border: 0;
+    cursor: pointer;
+    height: 1rem;
+    left: -1.5rem;
+    outline: none;
+    position: absolute;
+    top: .35rem;
+    transition: all .25s;
+    width: 1rem;
+}
+
+.options__site-delete:hover {
+    background-color: #051a31;
 }

@@ -11,15 +11,28 @@
         <img class="options__logo" src="/icons/icon.svg">
         <h2>Settings</h2>
         <div class="options__header">
-            <div>Enabled</div>
-            <label class="switch">
-                <input class="switch-input" type="checkbox" id="enabled-switch">
-                <span class="switch-slider"></span>
-            </label>
+            <div class="options__header-row">
+                <div>Enabled</div>
+                <label class="switch">
+                    <input class="switch-input" type="checkbox" id="enabled-switch">
+                    <span class="switch-slider"></span>
+                </label>
+            </div>
+            <div class="options__header-row">
+                <div>Nuclear Mode</div>
+                <label class="switch">
+                    <input class="switch-input" type="checkbox" id="nuclear-switch">
+                    <span class="switch-slider"></span>
+                </label>
+            </div>
         </div>
         
         <div class="options__sites">
             <h2>Blocked Sites</h2>
+            <div class="options__sites-add">
+                <input class="options__sites-add-input" type="url" placeholder="www.google.com">
+                <button class="options__sites-add-button">Add Site</button>
+            </div>
             <div id="blocked-sites"></div>
         </div>
     </div>
