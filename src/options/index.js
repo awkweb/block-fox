@@ -5,21 +5,13 @@ const nuclearSwitchId = '#nuclear-switch';
 const addContainerClass = '.options__sites-add'
 // CONSTANTS
 
-// INIT
-chrome.tabs.getSelected(null, (tab) => {
-    if (`chrome-extension://${chrome.runtime.id}/src/options/index.html` === tab.url) {
-        console.log('options page');
-    }
-});
-
-let sites = JSON.parse(localStorage.getItem(blockedSitesKey)) || [];
-const blockedSitesListElement = document.querySelector(blockedSitesListId);
-sites.forEach((site, index) => {
+// METHODS
+const addOptionsSiteElement = (site, index) => {
     const prettyUrl = getPrettyUrl(site);
     const markup = `
         <div id="site-${index}" class="options__site">
             <button id="delete-${index}" class="options__site-delete" data-site="${site}"></button>
-            <a href="${site}">${prettyUrl}</a>
+            <a href="${site}">${site}</a>
         </div>
     `;
     blockedSitesListElement.insertAdjacentHTML('afterend', markup);
@@ -30,7 +22,19 @@ sites.forEach((site, index) => {
         const siteElement = document.querySelector(`#site-${index}`);
         siteElement.parentNode.removeChild(siteElement);
     });
+};
+// METHODS
+
+// INIT
+chrome.tabs.getSelected(null, (tab) => {
+    if (`chrome-extension://${chrome.runtime.id}/src/options/index.html` === tab.url) {
+        console.log('options page');
+    }
 });
+
+let sites = JSON.parse(localStorage.getItem(blockedSitesKey)) || [];
+const blockedSitesListElement = document.querySelector(blockedSitesListId);
+sites.forEach((site, index) => addOptionsSiteElement(site, index));
 
 const enabled = localStorage.getItem(enabledSwitchKey) !== null &&
                 localStorage.getItem(enabledSwitchKey) === 'true';
@@ -51,11 +55,15 @@ nuclearSwitchElement.addEventListener('change', () =>
     localStorage.setItem(nuclearSwitchKey, nuclearSwitchElement.checked));
 
 const addContainerElement = document.querySelector(addContainerClass);
-const addInputElement = addContainerElement.getElementsByTagName('input')[0];
-const addButtonElement = addContainerElement.getElementsByTagName('button')[0];
-addButtonElement.addEventListener('click', () => {
-    if (addInputElement.value && addInputElement.value.length) {
-        console.log('addButtonElement', addInputElement.value);
+const inputElements = addContainerElement.getElementsByTagName('input');
+const addInputElement = inputElements[0];
+const addButtonElement = inputElements[1];
+addContainerElement.addEventListener('submit', () => {
+    if (addInputElement.value && addInputElement.value.length && !sites.includes(addInputElement.value)) {
+        addOptionsSiteElement(addInputElement.value, sites.length);
+        sites.push(addInputElement.value);
+        localStorage.setItem(blockedSitesKey, JSON.stringify(sites));
+        addInputElement.value = '';
     }
 });
 // EVENT LISTENERS

@@ -8,7 +8,7 @@ chrome.tabs.onUpdated
     if (!root) {
       return;
     }
-    const blocked = sites.includes(root)
+    const blocked = sites.includes(root);
     if (enabled && blocked) {
       localStorage.setItem(blockedSiteKey, root);
       chrome.tabs.update(tabId, { url: '/src/blocked/index.html' });

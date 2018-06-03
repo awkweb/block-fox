@@ -29,10 +29,16 @@
         
         <div class="options__sites">
             <h2>Blocked Sites</h2>
-            <div class="options__sites-add">
-                <input class="options__sites-add-input" type="url" placeholder="www.google.com">
-                <button class="options__sites-add-button">Add Site</button>
-            </div>
+            <form class="options__sites-add">
+                <input
+                    class="options__sites-add-input"
+                    name="website"
+                    pattern="https?://.+"
+                    placeholder="https://www.google.com"
+                    type="url"
+                >
+                <input class="options__sites-add-button" type="submit" value="Add Site">
+            </form>
             <div id="blocked-sites"></div>
         </div>
     </div>
