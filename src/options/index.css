@@ -11,6 +11,102 @@
     width: 100vw;
 }
 
+.options__popup {
+    background-color: rgba(0,0,0,.5);
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 100;
+}
+
+.options__popup.hidden {
+    display: none;
+}
+
+.options__popup-modal {
+    background-color: #102d47;
+    border-radius: 2px;
+    margin-top: 8rem;
+    max-width: 25rem;
+    padding: 1.25rem;
+    position: absolute;
+}
+
+.options__popup-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.options__popup-title {
+    font-weight: bold;
+}
+
+.options__popup-close {
+    -webkit-appearance: none;
+    background-color: transparent;
+    background-image: url('/icons/x.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 2px;
+    border: 0;
+    cursor: pointer;
+    height: 1rem;
+    outline: none;
+    position: relative;
+    transition: all .25s;
+    width: 1rem;
+}
+
+.options__popup-close:hover {
+    background-color: #051a31;
+}
+
+.options__popup-body {
+    font-size: .9rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.options__popup-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.options__popup-button {
+    -webkit-appearance: none;
+    background-color: #001933;
+    border-radius: 2px;
+    border: 0;
+    color: #f3f4f5;
+    cursor: pointer;
+    height: 1.77rem;
+    font-family: 'Fira Code', monospace;
+    font-size: .8rem;
+    outline: 0;
+    padding: 0;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    transition: all .25s;
+}
+
+.options__popup-button:hover {
+    transform: translateY(-1px);
+}
+
+.options__popup-button:active {
+    transform: translateY(1px);
+}
+
+.options__popup-button.confirm {
+    background-color: #c24843;
+}
+
 .options__logo {
     margin-bottom: 2rem;
     width: 1.5rem;
@@ -35,9 +131,6 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 1rem;
-}
-
-.options__sites {
 }
 
 .options__sites-add {
@@ -84,7 +177,6 @@
 }
 
 .options__sites-add-button:hover {
-    background-color: #c24843;
     transform: translateY(-1px);
 }
 
@@ -94,10 +186,11 @@
 
 .options__site {
     margin-bottom: 1rem;
-    position: relative;
+    margin-left: -1.5rem;
 }
 
 .options__site-delete {
+    -webkit-appearance: none;
     background-color: transparent;
     background-image: url('/icons/x.svg');
     background-repeat: no-repeat;
@@ -106,14 +199,16 @@
     border: 0;
     cursor: pointer;
     height: 1rem;
-    left: -1.5rem;
+    opacity: 0;
     outline: none;
-    position: absolute;
-    top: .35rem;
-    transition: all .25s;
+    pointer-events: none;
+    position: relative;
+    top: .20rem;
     width: 1rem;
 }
 
-.options__site-delete:hover {
+.options__site:hover .options__site-delete {
     background-color: #051a31;
+    opacity: 1;
+    pointer-events: all;
 }

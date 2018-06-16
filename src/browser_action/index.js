@@ -6,7 +6,7 @@ const tabUrlId = '#tab-url';
 // CONSTANTS
 
 // INIT
-const settingsLink = `chrome-extension://${chrome.runtime.id}/src/options/index.html`;
+const settingsLink = getSettingsUrl();
 const markup = `<a href="${settingsLink}" class="popup__row-link" target="_blank">Settings</a>`;
 const footerElement = document.querySelector('footer');
 footerElement.insertAdjacentHTML('afterend', markup);

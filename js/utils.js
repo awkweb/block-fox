@@ -24,3 +24,5 @@ const updateSwitchForId = (id, value) => {
     const el = document.querySelector(id);
     el.checked = value;
 };
+
+const getSettingsUrl = () => `chrome-extension://${chrome.runtime.id}/src/options/index.html`;

@@ -7,6 +7,22 @@
     <script src="/js/utils.js"></script>
 </head>
 <body class="options">
+    <div class="options__popup hidden">
+        <div class="options__popup-modal">
+            <header class="options__popup-header">
+                <div class="options__popup-title">Enable Focus Mode</div>
+                <button class="options__popup-close"></button>
+            </header>
+            <div class="options__popup-body">
+                Turning on Focus Mode will prevent you from visiting <b>all blocked sites</b> and Block Fox's settings for the <b>next 30 minutes</b>. Are you sure you want to do this?
+            </div>
+            <footer class="options__popup-footer">
+                <button class="options__popup-button cancel">Cancel</button>
+                <button class="options__popup-button confirm">Yes, enable Focus Mode</button>
+            </footer>
+        </div>
+    </div>
+
     <div class="options__container">
         <img class="options__logo" src="/icons/icon.svg">
         <h2>Settings</h2>
@@ -19,7 +35,7 @@
                 </label>
             </div>
             <div class="options__header-row">
-                <div>Nuclear Mode</div>
+                <div>Focus Mode</div>
                 <label class="switch">
                     <input class="switch-input" type="checkbox" id="nuclear-switch">
                     <span class="switch-slider"></span>
