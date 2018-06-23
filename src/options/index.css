@@ -73,6 +73,37 @@
     margin-bottom: 2rem;
 }
 
+.options__popup-focus {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.options__popup-focus-button {
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 1px solid rgba(255,255,255,.65);
+    color: #f3f4f5;
+    cursor: pointer;
+    flex: 1;
+    font-family: 'Fira Code', monospace;
+    font-size: .9rem;
+    height: 1.77rem;
+    outline: 0;
+    padding: 0;
+}
+.options__popup-focus-button:first-child {
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+}
+.options__popup-focus-button:last-child {
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+}
+.options__popup-focus-button.selected {
+    background-color: rgba(255,255,255,.2);
+    font-weight: bold;
+}
+
 .options__popup-footer {
     display: flex;
     justify-content: space-between;
@@ -187,6 +218,7 @@
 .options__site {
     margin-bottom: 1rem;
     margin-left: -1.5rem;
+    white-space: nowrap;
 }
 
 .options__site-delete {

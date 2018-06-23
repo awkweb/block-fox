@@ -2,7 +2,9 @@
 const blockedSitesListId = '#blocked-sites';
 const enabledSwitchId = '#enabled-switch';
 const nuclearSwitchId = '#nuclear-switch';
+const focusDescriptionId = '#focus-description';
 const addContainerClass = '.options__sites-add'
+const focusOptionsContainerClass = '.options__popup-focus';
 const popUpClass = '.options__popup';
 const popUpButtonCancelClass = '.options__popup-button.cancel';
 const popUpButtonCloseClass = '.options__popup-close';
@@ -65,17 +67,30 @@ const popUpButtonConfirmElement = document.querySelector(popUpButtonConfirmClass
 popUpButtonConfirmElement.addEventListener('click', () => {
     if (!enabledSwitchElement.checked) {
         enabledSwitchElement.checked = true;
-        localStorage.setItem(enabledSwitchKey, enabledSwitchElement.checked)
+        localStorage.setItem(enabledSwitchKey, enabledSwitchElement.checked);
     }
     
     nuclearSwitchElement.checked = true;
-    let nuclearTime = new Date()
-    nuclearTime.setMinutes(nuclearTime.getMinutes() + 2);
+    let nuclearTime = new Date();
+    nuclearTime.setMinutes(nuclearTime.getMinutes() + focusTime);
     localStorage.setItem(nuclearTimeKey, nuclearTime);
     localStorage.setItem(nuclearSwitchKey, true);
     popUpElement.classList.add('hidden');
     location.reload();
 });
+
+let focusTime = 30;
+const focusOptionsContainerElement = document.querySelector(focusOptionsContainerClass);
+const focusButtons = focusOptionsContainerElement.getElementsByTagName('button');
+const focusDescriptionElement = document.querySelector(focusDescriptionId);
+Array.prototype.forEach.call(focusButtons, button =>
+    button.addEventListener('click', () => {
+        Array.prototype.forEach.call(focusButtons, button => button.classList.remove('selected'))
+        button.classList.add('selected');
+        focusTime = parseInt(button.dataset.time);
+        focusDescriptionElement.innerHTML = focusTime;
+    })
+);
 
 const addContainerElement = document.querySelector(addContainerClass);
 const inputElements = addContainerElement.getElementsByTagName('input');

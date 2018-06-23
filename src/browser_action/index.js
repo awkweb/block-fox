@@ -3,13 +3,13 @@ const enabledSwitchId = '#enabled-switch';
 const siteRowId = '#site-row';
 const siteSwitchId = '#site-switch';
 const tabUrlId = '#tab-url';
+const settingsLinkClass = '.popup__settings';
 // CONSTANTS
 
 // INIT
 const settingsLink = getSettingsUrl();
-const markup = `<a href="${settingsLink}" class="popup__row-link" target="_blank">Settings</a>`;
-const footerElement = document.querySelector('footer');
-footerElement.insertAdjacentHTML('afterend', markup);
+const settingsLinkElement = document.querySelector(settingsLinkClass);
+settingsLinkElement.href = settingsLink;
 
 let sites = JSON.parse(localStorage.getItem(blockedSitesKey)) || [];
 chrome.tabs.getSelected(null, (tab) => {

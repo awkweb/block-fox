@@ -14,7 +14,13 @@
                 <button class="options__popup-close"></button>
             </header>
             <div class="options__popup-body">
-                Turning on Focus Mode will prevent you from visiting <b>all blocked sites</b> and Block Fox's settings for the <b>next 30 minutes</b>. Are you sure you want to do this?
+                <div class="options__popup-focus">
+                    <button class="options__popup-focus-button" data-time="5">05m</button>
+                    <button class="options__popup-focus-button" data-time="15">15m</button>
+                    <button class="options__popup-focus-button selected" data-time="30">30m</button>
+                    <button class="options__popup-focus-button" data-time="60">60m</button>
+                </div>
+                <div>Turning on Focus Mode will prevent you from visiting <b>all blocked sites</b> and Block Fox's settings for the <b>next <span id="focus-description">30</span> minutes</b>. Are you sure you want to do this?</div>
             </div>
             <footer class="options__popup-footer">
                 <button class="options__popup-button cancel">Cancel</button>
@@ -48,11 +54,13 @@
             <form class="options__sites-add">
                 <input
                     class="options__sites-add-input"
+                    autofocus
                     name="website"
                     pattern="https?://.+"
                     placeholder="https://www.google.com"
                     type="url"
                 >
+                
                 <input class="options__sites-add-button" type="submit" value="Add Site">
             </form>
             <div id="blocked-sites"></div>

@@ -14,11 +14,21 @@
 .popup__row.hidden { display: none; }
 .popup__row:first-child { margin-top: 0; }
 
-.popup__row-link {
-    border-bottom: 1px solid #000;
-    color: #000;
-    font-size: .9rem;
-    text-decoration: none;
+.popup__row-main {
+    align-items: center;
+    display: flex;
+}
+
+.popup__settings {
+    background-image: url('/icons/settings.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    height: .9rem;
+    margin-left: .5rem;
+    width: .9rem;
 }
 
 #tab-url {

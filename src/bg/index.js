@@ -11,6 +11,7 @@ chrome.tabs.onUpdated
     const chromeSettingsPageUrl = getSettingsUrl();
     if (enabled && nuclearEnabled && chromeSettingsPageUrl === tab.url) {
       if (nuclearTime > new Date().getTime()) {
+        localStorage.setItem(blockedSiteRawKey, null);
         localStorage.setItem(blockedSiteKey, null);
         chrome.tabs.update(tabId, { url: '/src/blocked/index.html' });
       } else if (nuclearTime < new Date().getTime()) {
@@ -27,6 +28,8 @@ chrome.tabs.onUpdated
     }
     const blocked = sites.includes(root);
     if (enabled && blocked) {
+      console.log(tab.url);
+      localStorage.setItem(blockedSiteRawKey, tab.url);
       localStorage.setItem(blockedSiteKey, root);
       chrome.tabs.update(tabId, { url: '/src/blocked/index.html' });
     }
