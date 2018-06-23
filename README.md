@@ -6,7 +6,9 @@ Quickly block sites.
 
 ![settings](screenshots/02.png)
 
-![chrome](screenshots/03.png)
+![focus](screenshots/03.png)
+
+![chrome](screenshots/04.png)
 
 ## Motivation
 

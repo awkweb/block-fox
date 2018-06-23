@@ -18,6 +18,7 @@ const addOptionsSiteElement = (site, index) => {
         <div id="site-${index}" class="options__site">
             <button id="delete-${index}" class="options__site-delete" data-site="${site}"></button>
             <a href="${site}">${site}</a>
+            ${ site in visitedCounts ? `<div class="options__site-count"><span>${visitedCounts[site]}</span></div>` : ''}
         </div>
     `;
     blockedSitesListElement.insertAdjacentHTML('afterend', markup);
@@ -32,6 +33,7 @@ const addOptionsSiteElement = (site, index) => {
 // METHODS
 
 // INIT
+const visitedCounts = JSON.parse(localStorage.getItem(visitedCountsKey)) || {};
 let sites = JSON.parse(localStorage.getItem(blockedSitesKey)) || [];
 const blockedSitesListElement = document.querySelector(blockedSitesListId);
 sites.forEach((site, index) => addOptionsSiteElement(site, index));

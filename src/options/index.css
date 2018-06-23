@@ -221,6 +221,18 @@
     white-space: nowrap;
 }
 
+.options__site-count {
+    align-items: center;
+    background-color: #08253F;
+    border-radius: 50%;
+    color: #c8c8c8;
+    display: inline-flex;
+    font-size: .7rem;
+    height: 1rem;
+    justify-content: center;
+    width: 1rem;
+}
+
 .options__site-delete {
     -webkit-appearance: none;
     background-color: transparent;

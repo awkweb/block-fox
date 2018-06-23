@@ -3,6 +3,7 @@ const siteDescriptionId = '#description';
 // CONSTANTS
 
 // INIT
+const visitedCounts = JSON.parse(localStorage.getItem(visitedCountsKey)) || {};
 const siteDescriptionElement = document.querySelector(siteDescriptionId);
 const blockedSite = localStorage.getItem(blockedSiteKey);
 const blockedSiteRaw = localStorage.getItem(blockedSiteRawKey);
@@ -26,4 +27,13 @@ if (blockedSiteRaw !== 'null' && blockedSite !== 'null') {
     `;
 }
 siteDescriptionElement.innerHTML = innerHTML;
+
+if (blockedSite in visitedCounts) {
+    console.log('before', visitedCounts[blockedSite]);
+    visitedCounts[blockedSite] = visitedCounts[blockedSite] + 1;
+    console.log('after', visitedCounts[blockedSite]);
+} else {
+    visitedCounts[blockedSite] = 1;
+}
+localStorage.setItem(visitedCountsKey, JSON.stringify(visitedCounts));
 // INIT
