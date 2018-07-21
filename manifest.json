@@ -1,6 +1,6 @@
 {
   "name": "Block Fox",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "manifest_version": 2,
   "description": "Quickly block sites",
   "icons": {
@@ -16,7 +16,7 @@
   "options_page": "src/options/index.html",
   "browser_action": {
     "default_icon": "icons/icon48.png",
-    "default_title": "Block Fox 🦊",
+    "default_title": "Block Fox",
     "default_popup": "src/browser_action/index.html"
   },
   "permissions": [
